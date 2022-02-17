@@ -1,0 +1,74 @@
+{% extends "base.html" %} {% block title%}Registrarse{% endblock %} {% block
+content %}
+<form method="POST">
+  <h3 align="center">Registrarse</h3>
+  <div class="form-group">
+    <label for="nombre">NIF</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nif"
+      name="nif"
+      placeholder="Introduzca su NIF"
+    />
+    <label for="nombre">Nombre</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      placeholder="Introduzca su nombre"
+    />
+    <label for="apellidos">Apellidos</label>
+    <input
+      type="text"
+      class="form-control"
+      id="apellidos"
+      name="apellidos"
+      placeholder="Introduzca su(s) apellido(s)"
+    />
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      placeholder="Introduzca su email"
+    />
+    <label for="telefono">Teléfono</label>
+    <input
+      type="telephone"
+      class="form-control"
+      id="telefono"
+      name="telefono"
+      placeholder="Introduzca su número de teléfono"
+    />
+    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha_nacimiento"
+      name="fecha_nacimiento"
+      placeholder="Introduzca su fecha de nacimiento"
+    />
+    <label for="contrasena1">Contraseña</label>
+    <input
+      type="password"
+      class="form-control"
+      id="contrasena1"
+      name="contrasena1"
+      placeholder="Introduzca su contraseña"
+    />
+    <label for="contrasena2">Confirme la contraseña</label>
+    <input
+      type="password"
+      class="form-control"
+      id="contrasena2"
+      name="contrasena2"
+      placeholder="Vuelva a introducir su contraseña"
+    />
+  </div>
+  <br />
+  <button type="Submit" class="btn btn-primary">Registrarse</button>
+</form>
+{% endblock %}
