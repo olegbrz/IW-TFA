@@ -1,10 +1,32 @@
+from lib2to3.pgen2.token import SLASHEQUAL
 from flask import Flask
 from json import load
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
+DB_NAME = "iw_tfa"
+DB_USER = "root"
+DB_HOST = "localhost"
 
 
 def create_app():
     app = Flask(__name__)
     with open("secret.json") as s:
-        sk = load(s)["key"]
+        keys = load(s)
+        sk = keys["key"]
+        DB_PASS = keys["mysql_key"]
     app.config["SECRET_KEY"] = sk
+    app.config[
+        "SQLALCHEMY_DATABASE_URI"
+    ] = f"mysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"
+    db.init_app(app)
+
+    from .views import views
+    from .auth import auth
+
+    app.register_blueprint(views, url_prefix="/")
+    app.register_blueprint(auth, url_prefix="/")
+
+    from .models import Paciente, Lectura
+
     return app
