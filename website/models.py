@@ -13,17 +13,20 @@ class Paciente(db.Model, UserMixin):
     fecha_nacimiento = db.Column(db.Date)
     password = db.Column(db.String(500))
 
+    def get_id(self):
+        return self.nif
+
     # readings = db.relationship("Lectura")
 
 
 class Lectura(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date_time = db.Column(db.DateTime(timezone=True), default=func.now())
-    sys = db.Column(db.Integer)
-    dia = db.Column(db.Integer)
+    fecha_hora = db.Column(db.DateTime(timezone=True), default=func.now())
+    ta_sistolica = db.Column(db.Integer)
+    ta_diastolica = db.Column(db.Integer)
     ppm = db.Column(db.Integer)
     notes = db.Column(db.Text)
-    doctor_notes = db.Column(db.Text)
-    medicine_taken = db.Column(db.Boolean)
+    notas_medico = db.Column(db.Text)
+    medicacion_tomada = db.Column(db.Boolean)
 
-    patient_id = db.Column(db.Integer, db.ForeignKey("paciente.id"))
+    paciente_nif = db.Column(db.Integer, db.ForeignKey("paciente.nif"))
