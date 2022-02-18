@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title%}Página de Inicio{% endblock %} {%
+block content %}
+<h1>TFA - Ingeniería Web</h1>
+
+<p>
+  Bienvenidos al proyecto, para utilizar la herramienta, primero deberá iniciar
+  sesión, elija la opción que le corresponda:
+</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mb-3" style="width: 15rem">
+        <img
+          class="card-img-top"
+          src="./static/lecturas.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Lecturas</h5>
+          <p class="card-text">
+            Aquí podra consultar, editar, y administrar sus lecturas de tensión
+            arterial guardadas, así como registrar unas nuevas.
+          </p>
+          <a href="/readings" class="btn btn-success">Ir a lecturas</a>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-3" style="width: 15rem">
+        <img
+          class="card-img-top"
+          src="./static/medicinas.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Prescripciones</h5>
+          <p class="card-text">
+            Aquí podrá consultar sus medicaciones, así como las fechas de inicio
+            y final, sus principios activos, y la posología.
+          </p>
+          <a href="/prescriptions" class="btn btn-warning"
+            >Ir a prescripciones</a
+          >
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}
+  </div>
+</div>
