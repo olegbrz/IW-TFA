@@ -2,6 +2,7 @@ from lib2to3.pgen2.token import SLASHEQUAL
 from flask import Flask
 from json import load
 from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
 
 db = SQLAlchemy()
 DB_NAME = "iw_tfa"
@@ -20,6 +21,14 @@ def create_app():
         "SQLALCHEMY_DATABASE_URI"
     ] = f"mysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"
     db.init_app(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = "auth.login"
+    login_manager.init_app(app)
+
+    @login_manager.user_loader
+    def load_user(nif):
+        return Paciente.query.get(int(nif))
 
     from .views import views
     from .auth import auth
