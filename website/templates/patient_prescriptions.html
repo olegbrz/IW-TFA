@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title%}Mis prescripciones{% endblock %} {%
+block content %}
+<h3 align="center">Mis prescripciones</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 15%">Fecha inicio</th>
+      <th scope="col" style="width: 15%">Fecha fin</th>
+      <th scope="col" style="width: 20%">Medicamento</th>
+      <th scope="col" style="width: 30%">Principio activo</th>
+      <th scope="col" style="width: 20%">Posología</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for reading in user.prescriptions %}
+    <tr>
+      <th>{{reading.fecha_inicio}}</th>
+      <td>{{reading.fecha_fin}}</td>
+      <td>{{reading.medicamento}}</td>
+      <td>{{reading.principio_activo}}</td>
+      <td>{{reading.posologia}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

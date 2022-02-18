@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block title%}Mis información personal{% endblock %}
+{% block content %}
+<h3 align="center">Mi información personal</h3>
+<div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title">{{ user.nombre }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ user.apellidos }}</h6>
+    <ul>
+      <li><b>NIF:</b> {{user.nif}}</li>
+      <li><b>Fecha nacimiento:</b> {{user.fecha_nacimiento}}</li>
+      <li><b>Email:</b> {{user.email}}</li>
+      <li><b>Teléfono:</b> {{user.telefono}}</li>
+      <li><b>Médico asignado:</b> {{doctor.nombre}} {{doctor.apellidos}}</li>
+    </ul>
+    <a href="/edit-personal-data" class="card-link">Editar información</a>
+  </div>
+</div>
+{% endblock %}

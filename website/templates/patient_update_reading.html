@@ -1,22 +1,24 @@
-{% extends "base.html" %} {% block title%}Mis lecturas{% endblock %} {% block
-content %}
+{% extends "base.html" %} {% block title%}Modificar lectura{% endblock %} {%
+block content %}
 <form method="POST">
-  <h3 align="center">Añadir lectura</h3>
+  <h3 align="center">Modificar lectura</h3>
   <div class="form-group">
-    <label for="fecha_hora">Fecha y hora de registro</label>
+    <label for="fecha_hora">Fecha de nacimiento</label>
     <input
       type="datetime-local"
       class="form-control"
       id="fecha_hora"
       name="fecha_hora"
+      value="{{ fn }}"
     />
     <label for="ta_sistolica">Sistólica (mmHg)</label>
     <input
-      type="number"
+      type="text"
       class="form-control"
-      id="ta_sistolica"
-      name="ta_sistolica"
-      placeholder="Introduzca la tensión sistólica (valor más alto)"
+      id="nif"
+      name="nif"
+      value="{{ user.nif }}"
+      placeholder="Introduzca su NIF"
     />
     <label for="ta_diastolica">Diastólica (mmHg)</label>
     <input
@@ -24,6 +26,7 @@ content %}
       class="form-control"
       id="ta_diastolica"
       name="ta_diastolica"
+      value="{{ reading.ta_diastolica }}"
       placeholder="Introduzca la tensión diastólica (valor más bajo)"
     />
     <label for="ppm">Pulsaciones por minuto</label>
@@ -32,6 +35,7 @@ content %}
       class="form-control"
       id="ppm"
       name="ppm"
+      value="{{ reading.ppm }}"
       placeholder="Introduzca las pulsaciones por minuto"
     />
     <label for="notas">Notas</label>
@@ -40,6 +44,7 @@ content %}
       id="nota"
       name="nota"
       placeholder="Notas (opcional)"
+      value="{{ reading.notas }}"
     ></textarea>
     <label for="medicacion_tomada">Medicación tomada</label>
     <div class="form-check">
@@ -63,6 +68,6 @@ content %}
     </div>
   </div>
   <br />
-  <button type="Submit" class="btn btn-primary">Registrar</button>
+  <button type="Submit" class="btn btn-primary">Actualizar</button>
 </form>
 {% endblock %}
