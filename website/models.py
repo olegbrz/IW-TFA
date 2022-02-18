@@ -19,6 +19,18 @@ class Paciente(db.Model, UserMixin):
     # readings = db.relationship("Lectura")
 
 
+class Medico(db.Model, UserMixin):
+    __tablename__ = "Medico"
+    nif = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(45))
+    apellidos = db.Column(db.String(45))
+    email = db.Column(db.String(45), unique=True)
+    password = db.Column(db.String(500))
+
+    def get_id(self):
+        return self.nif
+
+
 class Lectura(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     fecha_hora = db.Column(db.DateTime(timezone=True), default=func.now())
@@ -30,3 +42,18 @@ class Lectura(db.Model):
     medicacion_tomada = db.Column(db.Boolean)
 
     paciente_nif = db.Column(db.Integer, db.ForeignKey("paciente.nif"))
+
+
+class Receta(db.model):
+    idReceta = db.Column(db.Integer, primary_key=True)
+    fecha_inicio = db.Column(db.Date)
+    fecha_fin = db.Column(db.Date)
+    medicamento = db.Column(db.String(45))
+    principio_activo = db.Column(db.String(45))
+    posología = db.Column(db.String(45))
+
+    paciente_nif = db.Column(db.Integer, db.ForeignKey("paciente.nif"))
+    medico_nif = db.Column(db.Ingeger, db.ForeignKey("medico.nif"))
+
+    def get_id(self):
+        return self.idReceta
