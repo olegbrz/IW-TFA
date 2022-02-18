@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title%}Mis lecturas{% endblock %} {% block
+content %}
+<form method="POST">
+  <h3 align="center">Añadir lectura</h3>
+  <div class="form-group">
+    <label for="fecha_hora">Fecha y hora de registro</label>
+    <input
+      type="datetime-local"
+      class="form-control"
+      id="fecha_hora"
+      name="fecha_hora"
+    />
+    <label for="ta_sistolica">Sistólica (mmHg)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="ta_sistolica"
+      name="ta_sistolica"
+      placeholder="Introduzca la tensión sistólica (valor más alto)"
+    />
+    <label for="ta_diastolica">Diastólica (mmHg)</label>
+    <input
+      type="number"
+      class="form-control"
+      id="ta_diastolica"
+      name="ta_diastolica"
+      placeholder="Introduzca la tensión diastólica (valor más bajo)"
+    />
+    <label for="ppm">Pulsaciones por minuto</label>
+    <input
+      type="number"
+      class="form-control"
+      id="ppm"
+      name="ppm"
+      placeholder="Introduzca las pulsaciones por minuto"
+    />
+    <label for="notas">Notas</label>
+    <textarea
+      class="form-control"
+      id="nota"
+      name="nota"
+      placeholder="Notas (opcional)"
+    ></textarea>
+    <label for="medicacion_tomada">Medicación tomada</label>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="medicacion_tomada"
+        value="yes"
+        id="medicacion_tomada1"
+        checked
+      /><label class="form-check-label" for="medicacion_tomada1"> Sí </label>
+    </div>
+    <div class="form-check">
+      <input
+        class="form-check-input"
+        type="radio"
+        name="medicacion_tomada"
+        value="no"
+        id="medicacion_tomada2"
+      /><label class="form-check-label" for="medicacion_tomada2"> No </label>
+    </div>
+  </div>
+  <br />
+  <button type="Submit" class="btn btn-primary">Registrar</button>
+</form>
+{% endblock %}
