@@ -13,6 +13,12 @@ views = Blueprint("views", __name__)
 
 
 @views.route("/")
+def landing():
+    return render_template("landing_page.html", user=current_user)
+
+
+@views.route("/home")
+@login_required
 def home():
     return render_template("home.html", user=current_user)
 
@@ -69,7 +75,7 @@ def patient_add_reading():
         ta_sistolica = int(request.form.get("ta_sistolica"))
         ta_diastolica = int(request.form.get("ta_diastolica"))
         ppm = int(request.form.get("ppm"))
-        notas = request.form.get("notas")
+        notas = request.form.get("nota")
         medicacion_tomada = bool(request.form.get("medicacion_tomada"))
 
         new_reading = Lectura(
