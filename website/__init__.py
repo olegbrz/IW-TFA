@@ -12,14 +12,19 @@ DB_HOST = "localhost"
 
 def create_app():
     app = Flask(__name__)
+    app.config["SQLALCHEMY_ECHO"] = True
+
     with open("secret.json") as s:
         keys = load(s)
-        sk = keys["key"]
+        SECRET_KEY = keys["key"]
         DB_PASS = keys["mysql_key"]
-    app.config["SECRET_KEY"] = sk
+    app.config["SECRET_KEY"] = SECRET_KEY
+
     app.config[
         "SQLALCHEMY_DATABASE_URI"
     ] = f"mysql://{DB_USER}:{DB_PASS}@{DB_HOST}/{DB_NAME}"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
+
     db.init_app(app)
 
     login_manager = LoginManager()
