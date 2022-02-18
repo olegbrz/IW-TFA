@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request, flash, redirect, url_for
 from .models import Paciente
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
+from flask_login import login_user, login_required, logout_user, current_user
 
 auth = Blueprint("auth", __name__)
 
@@ -15,14 +16,18 @@ def login():
         patient = Paciente.query.filter_by(email=email).first()
         if patient and check_password_hash(patient.password, password):
             flash("Sesión iniciada exitosamente", category="success")
+            login_user(patient, remember=True)
+            return redirect(url_for("views.home"))
         else:
             flash("Usuario y/o contraseña incorrectos", category="error")
-    return render_template("login.html")
+    return render_template("login.html", user=current_user)
 
 
 @auth.route("/logout")
+@login_required
 def logout():
-    return "<p>Logout</p>"
+    logout_user()
+    return redirect(url_for("auth.login"))
 
 
 @auth.route("/sign-up", methods=["GET", "POST"])
@@ -64,7 +69,8 @@ def sign_up():
             )
             db.session.add(new_user)
             db.session.commit()
+            login_user(patient, remember=True)
             flash("La cuenta fue registrada exitosamente!", category="success")
             return redirect(url_for("views.home"))
 
-    return render_template("sign_up.html")
+    return render_template("sign_up.html", user=current_user)
