@@ -1,4 +1,3 @@
-from lib2to3.pgen2.token import SLASHEQUAL
 from flask import Flask
 from json import load
 from flask_sqlalchemy import SQLAlchemy
@@ -12,7 +11,7 @@ DB_HOST = "localhost"
 
 def create_app():
     app = Flask(__name__)
-    app.config["SQLALCHEMY_ECHO"] = True
+    app.config["SQLALCHEMY_ECHO"] = False
 
     with open("secret.json") as s:
         keys = load(s)
@@ -33,7 +32,15 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(nif):
-        return Paciente.query.get(int(nif))
+        paciente = Paciente.query.get(int(nif))
+        medico = Medico.query.get(int(nif))
+        if paciente:
+            user = paciente
+        elif medico:
+            user = medico
+        else:
+            user = None
+        return user
 
     from .views import views
     from .auth import auth
@@ -41,6 +48,6 @@ def create_app():
     app.register_blueprint(views, url_prefix="/")
     app.register_blueprint(auth, url_prefix="/")
 
-    from .models import Paciente, Lectura
+    from .models import Paciente, Medico
 
     return app
