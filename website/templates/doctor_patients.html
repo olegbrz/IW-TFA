@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title%}Mis pacientes{% endblock %} {% block
+content %}
+<h3 align="center">Mis pacientes</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 30%">Nombre y apellidos</th>
+      <th scope="col">NIF</th>
+      <th scope="col">Prescripciones</th>
+      <th scope="col">Último registro</th>
+      <th scope="col">Borrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for paciente in user.pacientes %}
+    <tr>
+      <th scope="row">{{paciente.nombre}} {{paciente.apellidos}}</th>
+      <td>{{paciente.nif}}</td>
+      <td>{{ paciente.prescriptions|length }}</td>
+      <td>
+        {{ paciente.readings[0].ta_sistolica }}/{{
+        paciente.readings[0].ta_diastolica }} mmHg ({{ paciente.readings[0].ppm
+        }} ppm)
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onClick="deletePatient({{ paciente.nif }})"
+        >
+          Borrar
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="card border-success mt-4">
+  <div class="card-body">
+    <form method="POST" class="form-inline">
+      <h5 class="card-title mb-1">Añadir un nuevo paciente</h5>
+      <div class="form-group mx-sm-3">
+        <input
+          type="number"
+          class="form-control"
+          id="nif"
+          name="nif"
+          placeholder="NIF del paciente"
+        />
+      </div>
+      <button type="Submit" class="btn btn-success">Añadir</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

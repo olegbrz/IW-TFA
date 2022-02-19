@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title%}Mis prescripciones{% endblock %} {%
+block content %}
+<h3 align="center">Mis prescripciones</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Paciente</th>
+      <th scope="col">Medicamento</th>
+      <th scope="col">Principio activo</th>
+      <th scope="col">Posología</th>
+      <th scope="col">Fecha inicio</th>
+      <th scope="col">Fecha fin</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for prescription in user.prescriptions %}
+    <tr>
+      <th scope="row">
+        {{prescription.paciente.nombre}} {{prescription.paciente.apellidos}}
+      </th>
+      <td>{{prescription.medicamento}}</td>
+      <td>{{prescription.principio_activo}}</td>
+      <td>{{prescription.posologia}}</td>
+      <td>{{prescription.fecha_inicio}}</td>
+      <td>{{prescription.fecha_fin}}</td>
+      <td>
+        <button type="button" class="btn btn-danger" onClick="">Borrar</button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/add-reading">
+  <button type="button" class="btn btn-success">Nueva receta</button>
+</a>
+
+{% endblock %}
