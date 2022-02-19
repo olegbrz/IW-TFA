@@ -15,3 +15,13 @@ function deletePatient(nif) {
 		window.location.href = "/doctor-patients";
 	});
 }
+
+function deletePrescription(idReceta) {
+	fetch('/delete-prescription', {
+		method: 'POST',
+		body: JSON.stringify({ idReceta: idReceta })
+	}).then((_res) => {
+		window.location.href = "/doctor-prescriptions";
+	});
+}
+
