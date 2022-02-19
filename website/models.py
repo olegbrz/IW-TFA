@@ -31,6 +31,7 @@ class Medico(db.Model, UserMixin):
     password = db.Column(db.String(500))
 
     pacientes = db.relationship("Paciente")
+    prescriptions = db.relationship("Receta", order_by="desc(Receta.fecha_inicio)")
 
     def get_id(self):
         return self.nif
@@ -59,6 +60,7 @@ class Receta(db.Model):
     principio_activo = db.Column(db.String(45))
     posologia = db.Column(db.String(45))
 
+    paciente = db.relationship("Paciente")
     paciente_nif = db.Column(db.Integer, db.ForeignKey("Paciente.nif"))
     medico_nif = db.Column(db.Integer, db.ForeignKey("Medico.nif"))
 
