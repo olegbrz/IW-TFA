@@ -1,0 +1,72 @@
+{% extends "base.html" %} {% block title%}Añadir prescripción{% endblock %} {%
+block content %}
+<form method="POST">
+  <h3 align="center">Añadir prescripción</h3>
+  <div class="form-group">
+    <label for="usuario">Usuario</label>
+    {% if not target_patient_nif %}
+    <select id="paciente_nif" name="paciente_nif" class="form-control">
+      {% for patient in user.pacientes %}
+      <option value="{{patient.nif}}">
+        {{patient.nombre}} {{patient.apellidos}} (NIF {{patient.nif}})
+      </option>
+      {% endfor %}
+    </select>
+    {% else %}
+    <input
+      type="text"
+      class="form-control"
+      id="paciente_nif"
+      name="paciente_nif"
+      value="{{target_patient_nif}}"
+      readonly
+    />
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <label for="fecha_hora">Fecha de inicio</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha_inicio"
+      name="fecha_inicio"
+    />
+  </div>
+  <div class="form-group">
+    <label for="fecha_hora">Fecha de fin</label>
+    <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" />
+  </div>
+  <div class="form-group">
+    <label for="ta_sistolica">Medicamento</label>
+    <input
+      type="text"
+      class="form-control"
+      id="medicamento"
+      name="medicamento"
+      placeholder="Introduzca el nombre del medicamento"
+    />
+  </div>
+  <div class="form-group">
+    <label for="principio_activo">Principio activo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="principio_activo"
+      name="principio_activo"
+      placeholder="Introduzca el principio activo"
+    />
+  </div>
+  <div class="form-group">
+    <label for="principio_activo">Posología</label>
+    <input
+      type="text"
+      class="form-control"
+      id="posologia"
+      name="posologia"
+      placeholder="Introduzca la posología"
+    />
+  </div>
+  <br />
+  <button type="Submit" class="btn btn-success">Añadir</button>
+</form>
+{% endblock %}

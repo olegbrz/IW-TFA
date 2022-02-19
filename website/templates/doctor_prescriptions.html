@@ -33,13 +33,19 @@ block content %}
         >
       </td>
       <td>
-        <button type="button" class="btn btn-danger" onClick="">Borrar</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onClick="deletePrescription({{prescription.idReceta}})"
+        >
+          Borrar
+        </button>
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-<a href="/add-reading">
+<a href="/add-prescription">
   <button type="button" class="btn btn-success">Nueva receta</button>
 </a>
 

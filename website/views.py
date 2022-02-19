@@ -127,7 +127,7 @@ def delete_reading():
         return redirect(url_for("views.patient_home"))
 
 
-""" Doctos views """
+""" Doctor views """
 
 
 @views.route("/doctor-home")
@@ -188,10 +188,10 @@ def doctor_update_prescription(idReceta):
         prescription.fecha_inicio = request.form.get("fecha_fin")
         prescription.medicamento = request.form.get("medicamento")
         prescription.principio_activo = request.form.get("principio_activo")
-        prescription.posología = request.form.get("posología")
+        prescription.posologia = request.form.get("posologia")
         db.session.commit()
         flash("La lectura fue actualizada correctamente", category="success")
-        return redirect(url_for("views.patient_home"))
+        return redirect(url_for("views.doctor_prescriptions"))
 
     if prescription:
         fi = datetime.strftime(prescription.fecha_inicio, "%Y-%m-%d")
@@ -203,3 +203,44 @@ def doctor_update_prescription(idReceta):
             fi=fi,
             ff=ff,
         )
+
+
+@views.route("/add-prescription/", defaults={"nif": None}, methods=["GET", "POST"])
+@views.route("/add-prescription/<nif>", methods=["GET", "POST"])
+@login_required
+def doctor_add_prescription(nif):
+    if request.method == "POST":
+        paciente_nif = request.form.get("paciente_nif")
+        fecha_inicio = request.form.get("fecha_inicio")
+        fecha_fin = request.form.get("fecha_fin")
+        medicamento = request.form.get("medicamento")
+        principio_activo = request.form.get("principio_activo")
+        posologia = request.form.get("posologia")
+
+        prescription = Receta(
+            fecha_inicio=fecha_inicio,
+            fecha_fin=fecha_fin,
+            medicamento=medicamento,
+            principio_activo=principio_activo,
+            posologia=posologia,
+            medico_nif=current_user.nif,
+            paciente_nif=paciente_nif,
+        )
+        db.session.add(prescription)
+        db.session.commit()
+        flash("Receta registrada correctamente", category="success")
+        return redirect(url_for("views.doctor_prescriptions"))
+    return render_template(
+        "doctor_add_prescription.html", user=current_user, target_patient_nif=nif
+    )
+
+
+@views.route("/delete-prescription", methods=["POST"])
+def delete_prescription():
+    idReceta = json.loads(request.data)["idReceta"]
+    receta = Receta.query.get(idReceta)
+    if receta and current_user.__tablename__ == "Medico":
+        db.session.delete(receta)
+        db.session.commit()
+        flash("La receta fue eliminada satisfactoriamente", category="success")
+        return redirect(url_for("views.doctor_prescriptions"))

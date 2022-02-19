@@ -18,9 +18,9 @@ content %}
       <td>{{paciente.nif}}</td>
       <td>{{ paciente.prescriptions|length }}</td>
       <td>
-        {{ paciente.readings[0].ta_sistolica }}/{{
+        {% if paciente.readings %} {{ paciente.readings[0].ta_sistolica }}/{{
         paciente.readings[0].ta_diastolica }} mmHg ({{ paciente.readings[0].ppm
-        }} ppm)
+        }} ppm) {% else %}Aún no hay registros{% endif %}
       </td>
       <td>
         <button
