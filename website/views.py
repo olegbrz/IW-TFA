@@ -5,7 +5,7 @@ from flask_login import current_user, login_required
 from itsdangerous import json
 from werkzeug.security import generate_password_hash
 
-from website.models import Lectura, Medico, Paciente
+from website.models import Receta, Medico, Paciente
 
 from . import db
 
@@ -78,7 +78,7 @@ def patient_add_reading():
         notas = request.form.get("nota")
         medicacion_tomada = bool(request.form.get("medicacion_tomada"))
 
-        new_reading = Lectura(
+        new_reading = Receta(
             fecha_hora=fecha_hora,
             ta_sistolica=ta_sistolica,
             ta_diastolica=ta_diastolica,
@@ -97,7 +97,7 @@ def patient_add_reading():
 @views.route("/update-reading/<idLectura>", methods=["GET", "POST"])
 @login_required
 def update_reading(idLectura):
-    reading = Lectura.query.filter_by(idLectura=idLectura).first()
+    reading = Receta.query.filter_by(idLectura=idLectura).first()
     if request.method == "POST":
         reading.fecha_hora = request.form.get("fecha_hora")
         reading.ta_sistolica = int(request.form.get("ta_sistolica"))
@@ -119,7 +119,7 @@ def update_reading(idLectura):
 @views.route("/delete-reading", methods=["POST"])
 def delete_reading():
     idLectura = json.loads(request.data)["idLectura"]
-    lectura = Lectura.query.get(idLectura)
+    lectura = Receta.query.get(idLectura)
     if lectura and lectura.paciente_nif == current_user.nif:
         db.session.delete(lectura)
         db.session.commit()
@@ -177,3 +177,29 @@ def doctor_prescriptions():
             flash("El usuario con el NIF dado no existe", category="error")
         return redirect(url_for("views.doctor_patients"))
     return render_template("doctor_prescriptions.html", user=current_user)
+
+
+@views.route("/update-prescription/<idReceta>", methods=["GET", "POST"])
+@login_required
+def doctor_update_prescription(idReceta):
+    prescription = Receta.query.filter_by(idReceta=idReceta).first()
+    if request.method == "POST":
+        prescription.fecha_inicio = request.form.get("fecha_inicio")
+        prescription.fecha_inicio = request.form.get("fecha_fin")
+        prescription.medicamento = request.form.get("medicamento")
+        prescription.principio_activo = request.form.get("principio_activo")
+        prescription.posología = request.form.get("posología")
+        db.session.commit()
+        flash("La lectura fue actualizada correctamente", category="success")
+        return redirect(url_for("views.patient_home"))
+
+    if prescription:
+        fi = datetime.strftime(prescription.fecha_inicio, "%Y-%m-%d")
+        ff = datetime.strftime(prescription.fecha_fin, "%Y-%m-%d")
+        return render_template(
+            "doctor_update_prescription.html",
+            user=current_user,
+            prescription=prescription,
+            fi=fi,
+            ff=ff,
+        )

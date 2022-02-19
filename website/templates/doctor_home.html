@@ -6,73 +6,64 @@ block content %}
 
 <div class="container">
   <div class="row">
-    <div class="col">
-      <div class="card mb-3" style="width: 15rem">
+    <!--ADD CLASSES HERE d-flex align-items-stretch-->
+    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+      <div class="card border-success">
         <img
-          class="card-img-top"
           src="./static/lecturas.jpg"
-          alt="Card image cap"
+          class="card-img-top"
+          alt="Card Image"
         />
-        <div class="card-body">
-          <h5 class="card-title">Lecturas</h5>
-          <p class="card-text">
-            Aquí podra consultar, editar, y administrar sus lecturas de tensión
-            arterial guardadas, así como registrar unas nuevas.
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Pacientes</h5>
+          <p class="card-text mb-4">
+            Aquí podra consultar, añadir y borrar pacientes que tiene en
+            seguimiento.
           </p>
-          <a href="/readings" class="btn btn-success">Ir a lecturas</a>
+          <a
+            href="/doctor-patients"
+            class="btn btn-success mt-auto align-self-start"
+            >Ir a pacientes</a
+          >
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card mb-3" style="width: 15rem">
+    <!--ADD CLASSES HERE d-flex align-items-stretch-->
+    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+      <div class="card border-warning">
         <img
-          class="card-img-top"
           src="./static/medicinas.jpg"
-          alt="Card image cap"
+          class="card-img-top"
+          alt="Card Image"
         />
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title">Prescripciones</h5>
-          <p class="card-text">
-            Aquí podrá consultar sus medicaciones, así como las fechas de inicio
-            y final, sus principios activos, y la posología.
+          <p class="card-text mb-4">
+            Aquí podrá consultar las prescripciones que ha recetado, así como
+            las fechas de inicio y final, sus principios activos, y la
+            posología.
           </p>
-          <a href="/prescriptions" class="btn btn-warning"
+          <a
+            href="/doctor-prescriptions"
+            class="btn btn-warning mt-auto align-self-start"
             >Ir a prescripciones</a
           >
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card mb-3" style="width: 15rem">
-        <img
-          class="card-img-top"
-          src="./static/medico.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Médico</h5>
-          <p class="card-text">
-            Aquí podrá consultar la información sobre su médico asignado.
-          </p>
-          <a href="/personal-data" class="btn btn-info">Ir a médico</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mb-3" style="width: 15rem">
-        <img
-          class="card-img-top"
-          src="./static/info.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
+    <!--ADD CLASSES HERE d-flex align-items-stretch-->
+    <div class="col-lg-4 mb-3 d-flex align-items-stretch">
+      <div class="card border-primary">
+        <img src="./static/info.jpg" class="card-img-top" alt="Card Image" />
+        <div class="card-body d-flex flex-column">
           <h5 class="card-title">Información personal</h5>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
+          <p class="card-text mb-4">
+            Aquí podrá consultar y modificar su información personal
           </p>
-          <a href="/personal-data" class="btn btn-primary"
-            >Ir a información pers.</a
+          <a
+            href="/doctor-personal-data/{{ user.nif }}"
+            class="btn btn-primary mt-auto align-self-start"
+            >Ir a información personal</a
           >
         </div>
       </div>

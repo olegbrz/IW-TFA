@@ -6,11 +6,12 @@ block content %}
     <tr>
       <th scope="col">Paciente</th>
       <th scope="col">Medicamento</th>
-      <th scope="col">Principio activo</th>
+      <th scope="col" style="width: 20%">Principio activo</th>
       <th scope="col">Posología</th>
-      <th scope="col">Fecha inicio</th>
-      <th scope="col">Fecha fin</th>
+      <th scope="col" style="width: 10%">Fecha inicio</th>
+      <th scope="col" style="width: 10%">Fecha fin</th>
       <th scope="col">Acciones</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,13 @@ block content %}
       <td>{{prescription.posologia}}</td>
       <td>{{prescription.fecha_inicio}}</td>
       <td>{{prescription.fecha_fin}}</td>
+      <td>
+        <a
+          class="btn btn-primary"
+          href="./update-prescription/{{ prescription.idReceta}}"
+          >Editar</a
+        >
+      </td>
       <td>
         <button type="button" class="btn btn-danger" onClick="">Borrar</button>
       </td>

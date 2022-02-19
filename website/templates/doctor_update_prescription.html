@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block title%}Modificar prescripción{% endblock %}
+{% block content %}
+<form method="POST">
+  <h3 align="center">Modificar prescripción</h3>
+  <div class="form-group">
+    <label for="fecha_hora">Fecha de inicio</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha_inicio"
+      name="fecha_inicio"
+      value="{{ fi }}"
+    />
+    <label for="fecha_hora">Fecha de fin</label>
+    <input
+      type="date"
+      class="form-control"
+      id="fecha_fin"
+      name="fecha_fin"
+      value="{{ ff }}"
+    />
+    <label for="ta_sistolica">Medicamento</label>
+    <input
+      type="text"
+      class="form-control"
+      id="medicamento"
+      name="medicamento"
+      value="{{ prescription.medicamento }}"
+      placeholder="Introduzca el nombre del medicamento"
+    />
+    <label for="principio_activo">Principio activo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="principio_activo"
+      name="principio_activo"
+      value="{{ prescription.principio_activo }}"
+      placeholder="Introduzca el principio activo"
+    />
+    <label for="principio_activo">Posología</label>
+    <input
+      type="text"
+      class="form-control"
+      id="posologia"
+      name="posologia"
+      value="{{ prescription.posologia }}"
+      placeholder="Introduzca la posología"
+    />
+  </div>
+  <br />
+  <button type="Submit" class="btn btn-primary">Actualizar</button>
+</form>
+{% endblock %}
