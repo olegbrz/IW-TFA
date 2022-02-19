@@ -5,7 +5,7 @@ from flask_login import current_user, login_required
 from itsdangerous import json
 from werkzeug.security import generate_password_hash
 
-from website.models import Lectura, Medico
+from website.models import Lectura, Medico, Paciente
 
 from . import db
 
@@ -17,16 +17,16 @@ def landing():
     return render_template("landing_page.html", user=current_user)
 
 
-@views.route("/home")
+@views.route("/patient-home")
 @login_required
-def home():
-    return render_template("home.html", user=current_user)
+def patient_home():
+    return render_template("patient_home.html", user=current_user)
 
 
 @views.route("/readings")
 @login_required
-def patient_home():
-    return render_template("patient_home.html", user=current_user)
+def patient_readings():
+    return render_template("patient_readings.html", user=current_user)
 
 
 @views.route("/prescriptions")
@@ -125,3 +125,55 @@ def delete_reading():
         db.session.commit()
         flash("La lectura fue eliminada satisfactoriamente", category="success")
         return redirect(url_for("views.patient_home"))
+
+
+""" Doctos views """
+
+
+@views.route("/doctor-home")
+@login_required
+def doctor_home():
+    return render_template("doctor_home.html", user=current_user)
+
+
+@views.route("/doctor-patients", methods=["GET", "POST"])
+@login_required
+def doctor_patients():
+    if request.method == "POST":
+        nif = request.form.get("nif")
+        paciente = Paciente.query.filter_by(nif=nif).first()
+        if paciente and current_user.__tablename__ == "Medico":
+            paciente.medico_nif = current_user.nif
+            db.session.commit()
+            flash("Paciente añadido correctamente", category="success")
+        else:
+            flash("El usuario con el NIF dado no existe", category="error")
+        return redirect(url_for("views.doctor_patients"))
+    return render_template("doctor_patients.html", user=current_user)
+
+
+@views.route("/delete-patient", methods=["POST"])
+def delete_patient():
+    nif = json.loads(request.data)["nif"]
+    paciente = Paciente.query.get(nif)
+    if paciente and paciente.medico_nif == current_user.nif:
+        paciente.medico_nif = None
+        db.session.commit()
+        flash("El usuario fue eliminado satisfactoriamente", category="success")
+        return redirect(url_for("views.doctor_patients"))
+
+
+@views.route("/doctor-prescriptions", methods=["GET", "POST"])
+@login_required
+def doctor_prescriptions():
+    if request.method == "POST":
+        nif = request.form.get("nif")
+        paciente = Paciente.query.filter_by(nif=nif).first()
+        if paciente and current_user.__tablename__ == "Medico":
+            paciente.medico_nif = current_user.nif
+            db.session.commit()
+            flash("Paciente añadido correctamente", category="success")
+        else:
+            flash("El usuario con el NIF dado no existe", category="error")
+        return redirect(url_for("views.doctor_patients"))
+    return render_template("doctor_prescriptions.html", user=current_user)
