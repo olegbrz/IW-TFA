@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title%}Mis lecturas{% endblock %} {% block
+content %}
+<h3 align="center">Mis lecturas</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 30%">Fecha y hora</th>
+      <th scope="col">SIS</th>
+      <th scope="col">DIA</th>
+      <th scope="col">PPM</th>
+      <th scope="col" style="width: 25%">Notas</th>
+      <th scope="col" style="width: 25%">Notas médico</th>
+      <th scope="col" style="width: 10%">Acciones</th>
+      <th scope="col" style="width: 10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for reading in user.readings %}
+    <tr>
+      <th scope="row">{{reading.fecha_hora}}</th>
+      <td>{{reading.ta_sistolica}}</td>
+      <td>{{reading.ta_diastolica}}</td>
+      <td>{{reading.ppm}}</td>
+      <td>
+        {% if reading.notas != None %}{{ reading.notas }}{% else %}-{%endif%}
+      </td>
+      <td>
+        {% if reading.notas_medico != None %}{{ reading.notas_medico }}{% else
+        %}-{%endif%}
+      </td>
+      <td>
+        <a
+          class="btn btn-primary"
+          href="./update-reading/{{ reading.idLectura}}"
+          >Editar</a
+        >
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          onClick="deleteReading({{ reading.idLectura }})"
+        >
+          Borrar
+        </button>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="/add-reading">
+  <button type="button" class="btn btn-success">Añadir nueva lectura</button>
+</a>
+{% endblock %}
