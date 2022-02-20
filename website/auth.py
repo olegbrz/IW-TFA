@@ -92,7 +92,11 @@ def doctor_sign_up():
         nif = request.form.get("nif")
         name = request.form.get("nombre")
         surnames = request.form.get("apellidos")
+        hospital = request.form.get("hospital")
+        consulta = request.form.get("consulta")
+        horario_atencion = request.form.get("horario_atencion")
         email = request.form.get("email")
+        telefono = request.form.get("telefono")
         password1 = request.form.get("contrasena1")
         password2 = request.form.get("contrasena2")
 
@@ -117,6 +121,10 @@ def doctor_sign_up():
                 nombre=name,
                 apellidos=surnames,
                 email=email,
+                telefono=telefono,
+                hospital=hospital,
+                consulta=consulta,
+                horario_atencion=horario_atencion,
                 password=generate_password_hash(password1, method="sha256"),
             )
             db.session.add(new_doctor)
