@@ -9,15 +9,15 @@ block content %}
       class="form-control"
       id="fecha_hora"
       name="fecha_hora"
-      value="{{ fn }}"
+      value="{{ fh }}"
     />
     <label for="ta_sistolica">Sistólica (mmHg)</label>
     <input
-      type="text"
+      type="number"
       class="form-control"
-      id="nif"
-      name="nif"
-      value="{{ user.nif }}"
+      id="ta_istolica"
+      name="ta_sistolica"
+      value="{{  reading.ta_sistolica }}"
       placeholder="Introduzca su NIF"
     />
     <label for="ta_diastolica">Diastólica (mmHg)</label>

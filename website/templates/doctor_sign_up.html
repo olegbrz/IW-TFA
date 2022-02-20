@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title%}Registro- Médico{% endblock %} {%
 block content %}
 <form method="POST">
-  <h3 align="center">Registraro - médicos</h3>
+  <h3 align="center">Registro - médicos</h3>
   <div class="form-group">
     <label for="nombre">NIF</label>
     <input
@@ -40,6 +40,46 @@ block content %}
       id="email"
       name="email"
       placeholder="Introduzca su email"
+    />
+  </div>
+  <div class="form-group">
+    <label for="telefono">Teléfono</label>
+    <input
+      type="telephone"
+      class="form-control"
+      id="telefono"
+      name="telefono"
+      placeholder="Introduzca su teléfono"
+    />
+  </div>
+  <div class="form-group">
+    <label for="hospital">Hospital</label>
+    <input
+      type="text"
+      class="form-control"
+      id="hospital"
+      name="hospital"
+      placeholder="Introduzca su hospital"
+    />
+  </div>
+  <div class="form-group">
+    <label for="consulta">Consulta</label>
+    <input
+      type="text"
+      class="form-control"
+      id="consulta"
+      name="consulta"
+      placeholder="Introduzca su consulta"
+    />
+  </div>
+  <div class="form-group">
+    <label for="horario_atencion">Horario de atención</label>
+    <input
+      type="text"
+      class="form-control"
+      id="horario_atencion"
+      name="horario_atencion"
+      placeholder="Introduzca su horario de atención"
     />
   </div>
   <div class="form-group">
