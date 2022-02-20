@@ -21,6 +21,10 @@ def login():
         elif doctor:
             user = doctor
             redir = "views.doctor_home"
+        else:
+            flash("Usuario y/o contraseña incorrectos", category="error")
+            return render_template("login.html", user=current_user)
+
         if user and check_password_hash(user.password, password):
             flash("Sesión iniciada exitosamente", category="success")
             login_user(user, remember=True)
