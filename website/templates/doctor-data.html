@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title%}Información sobre Dr. {{ doctor.nombre
+}}{% endblock %} {% block content %}
+<h3 align="center">
+  Información sobre Dr. {{doctor.nombre}} {{doctor.apellidos}}
+</h3>
+<div class="card w-50 mx-auto bg-light">
+  <div class="card-body">
+    <h5 class="card-title">{{ doctor.nombre }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{ doctor.apellidos }}</h6>
+    <ul>
+      <li><b>NIF:</b> {{doctor.nif}}</li>
+      <li>
+        <b>Email:</b><a href="mailto:{{doctor.email}}"> {{doctor.email}}</a>
+      </li>
+      <li>
+        <b>Teléfono:</b>
+        <a href="tel:+34{{doctor.telefono}}">{{doctor.telefono}}</a>
+      </li>
+      <hr />
+      <li><b>Hospital:</b> {{doctor.hospital}}</li>
+      <li><b>Consulta:</b> {{doctor.consulta}}</li>
+      <li><b>Horario de atención:</b> {{doctor.horario_atencion}}</li>
+    </ul>
+    {% if user.nif == doctor.nif %}
+    <a href="/doctor-edit-personal-data" class="card-link"
+      >Editar información</a
+    >
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% block title%}Registraro - Paciente{% endblock %} {%
-block content %}
+{% extends "base.html" %} {% block title%}Modificar información personal{%
+endblock %} {% block content %}
 <form method="POST">
-  <h3 align="center">Registro - pacientes</h3>
+  <h3 align="center">Modificar información personal</h3>
   <div class="form-group">
     <label for="nombre">NIF</label>
     <input
@@ -9,6 +9,7 @@ block content %}
       class="form-control"
       id="nif"
       name="nif"
+      value="{{user.nif}}"
       placeholder="Introduzca su NIF"
     />
   </div>
@@ -19,6 +20,7 @@ block content %}
       class="form-control"
       id="nombre"
       name="nombre"
+      value="{{user.nombre}}"
       placeholder="Introduzca su nombre"
     />
   </div>
@@ -29,6 +31,7 @@ block content %}
       class="form-control"
       id="apellidos"
       name="apellidos"
+      value="{{user.apellidos}}"
       placeholder="Introduzca su(s) apellido(s)"
     />
   </div>
@@ -39,6 +42,7 @@ block content %}
       class="form-control"
       id="email"
       name="email"
+      value="{{user.email}}"
       placeholder="Introduzca su email"
     />
   </div>
@@ -49,19 +53,44 @@ block content %}
       class="form-control"
       id="telefono"
       name="telefono"
+      value="{{user.telefono}}"
       placeholder="Introduzca su número de teléfono"
     />
   </div>
   <div class="form-group">
-    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+    <label for="hospital">Hospital</label>
     <input
-      type="date"
+      type="text"
       class="form-control"
-      id="fecha_nacimiento"
-      name="fecha_nacimiento"
-      placeholder="Introduzca su fecha de nacimiento"
+      id="hospital"
+      name="hospital"
+      value="{{user.hospital}}"
+      placeholder="Introduzca su hospital"
     />
   </div>
+  <div class="form-group">
+    <label for="consulta">Consulta</label>
+    <input
+      type="text"
+      class="form-control"
+      id="consulta"
+      name="consulta"
+      value="{{user.consulta}}"
+      placeholder="Introduzca su consulta"
+    />
+  </div>
+  <div class="form-group">
+    <label for="horario_atencion">Horario de atención</label>
+    <input
+      type="text"
+      class="form-control"
+      id="horario_atencion"
+      name="horario_atencion"
+      value="{{user.horario_atencion}}"
+      placeholder="Introduzca su horario de atención"
+    />
+  </div>
+  <hr />
   <div class="form-group">
     <label for="contrasena1">Contraseña</label>
     <input
@@ -69,7 +98,7 @@ block content %}
       class="form-control"
       id="contrasena1"
       name="contrasena1"
-      placeholder="Introduzca su contraseña"
+      placeholder="Introduzca la nueva contraseña"
     />
   </div>
   <div class="form-group">
@@ -79,10 +108,10 @@ block content %}
       class="form-control"
       id="contrasena2"
       name="contrasena2"
-      placeholder="Vuelva a introducir su contraseña"
+      placeholder="Vuelva a introducir la nueva contraseña"
     />
   </div>
   <br />
-  <button type="Submit" class="btn btn-primary">Registrarse</button>
+  <button type="Submit" class="btn btn-primary">Actualizar información</button>
 </form>
 {% endblock %}

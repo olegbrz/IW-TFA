@@ -7,47 +7,38 @@ block content %}
   sesión, elija la opción que le corresponda:
 </p>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="card mx-auto" style="width: 15rem">
-        <img
-          class="card-img-top"
-          src="./static/paciente.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Área pacientes</h5>
-          <p class="card-text">
-            Aquí podra consultar, editar, y administrar sus lecturas de tensión
-            arterial guardadas, así como registrar unas nuevas.
-          </p>
-          <a href="/patient-login" class="btn btn-success"
-            >Iniciar sesión como paciente</a
-          >
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mx-auto" style="width: 15rem">
-        <img
-          class="card-img-top"
-          src="./static/medico.jpg"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <h5 class="card-title">Área médicos</h5>
-          <p class="card-text">
-            Aquí podrá consultar sus medicaciones, así como las fechas de inicio
-            y final, sus principios activos, y la posología.
-          </p>
-          <a href="/doctor-login" class="btn btn-warning"
-            >Iniciar sesión como médico</a
-          >
-        </div>
-      </div>
-    </div>
+<img
+  src="/static/bp.jpg"
+  class="img-fluid mb-3 rounded mx-auto d-block"
+  alt="Responsive image"
+  style="width: 100%; filter: brightness(60%)"
+/>
 
-    {% endblock %}
+<div class="card-deck">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Inicio de sesión</h5>
+      <a href="/login">
+        <button class="btn btn-primary mt-4" style="width: 100%">
+          Iniciar sesión
+        </button>
+      </a>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Registro</h5>
+      <a href="/patient-sign-up">
+        <button class="btn btn-success mb-2" style="width: 100%">
+          Registro - pacientes
+        </button> </a
+      ><a href="/doctor-sign-up">
+        <button class="btn btn-warning" style="width: 100%">
+          Registro - médicos
+        </button>
+      </a>
+    </div>
   </div>
 </div>
+
+{% endblock %}

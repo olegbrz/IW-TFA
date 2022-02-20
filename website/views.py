@@ -5,7 +5,7 @@ from flask_login import current_user, login_required
 from itsdangerous import json
 from werkzeug.security import generate_password_hash
 
-from website.models import Receta, Medico, Paciente
+from website.models import Lectura, Medico, Paciente, Receta
 
 from . import db
 
@@ -97,7 +97,7 @@ def patient_add_reading():
 @views.route("/update-reading/<idLectura>", methods=["GET", "POST"])
 @login_required
 def update_reading(idLectura):
-    reading = Receta.query.filter_by(idLectura=idLectura).first()
+    reading = Lectura.query.filter_by(idLectura=idLectura).first()
     if request.method == "POST":
         reading.fecha_hora = request.form.get("fecha_hora")
         reading.ta_sistolica = int(request.form.get("ta_sistolica"))
@@ -236,6 +236,7 @@ def doctor_add_prescription(nif):
 
 
 @views.route("/delete-prescription", methods=["POST"])
+@login_required
 def delete_prescription():
     idReceta = json.loads(request.data)["idReceta"]
     receta = Receta.query.get(idReceta)
@@ -244,3 +245,58 @@ def delete_prescription():
         db.session.commit()
         flash("La receta fue eliminada satisfactoriamente", category="success")
         return redirect(url_for("views.doctor_prescriptions"))
+
+
+@views.route("/doctor-view-patient/<patient_nif>")
+@login_required
+def doctor_view_patient(patient_nif):
+    patient = Paciente.query.filter_by(nif=patient_nif).first()
+    if patient and patient.medico_nif == current_user.nif:
+        return render_template(
+            "doctor_view_patient.html", user=current_user, patient=patient
+        )
+
+
+@views.route("/add-note/<idLectura>", methods=["POST"])
+@login_required
+def doctor_add_note(idLectura):
+    lectura = Lectura.query.filter_by(idLectura=idLectura).first()
+    if lectura and current_user.__tablename__ == "Medico":
+        lectura.notas_medico = request.form.get("notas_medico")
+        db.session.commit()
+        flash("La nota fue actualizada satisfactoriamente", category="success")
+        return "OK"
+        # return render_template(
+        #     "doctor_view_patient.html", user=current_user, patient=patient
+        # )
+
+
+@views.route("/doctor/<nif>")
+def doctor_data(nif):
+    doctor = Medico.query.filter_by(nif=nif).first()
+    if doctor:
+        return render_template("doctor-data.html", user=current_user, doctor=doctor)
+
+
+@views.route("/doctor-edit-personal-data", methods=["GET", "POST"])
+def doctor_edit_data():
+    if request.method == "POST":
+        current_user.nif = request.form.get("nif")
+        current_user.nombre = request.form.get("nombre")
+        current_user.apellidos = request.form.get("apellidos")
+        current_user.email = request.form.get("email")
+        current_user.telefono = request.form.get("telefono")
+        current_user.hospital = request.form.get("hospital")
+        current_user.consulta = request.form.get("consulta")
+        current_user.horario_atencion = request.form.get("horario_atencion")
+
+        contrasena1 = request.form.get("contrasena1")
+        contrasena2 = request.form.get("contrasena2")
+        if contrasena1 and contrasena1 == contrasena2:
+            current_user.password = generate_password_hash(contrasena1, method="sha256")
+
+        db.session.commit()
+        flash("Información personal actualizada correctamente", category="success")
+        return redirect(url_for("views.doctor_data", nif=current_user.nif))
+    if current_user.__tablename__ == "Medico":
+        return render_template("doctor_edit_personal_data.html", user=current_user)

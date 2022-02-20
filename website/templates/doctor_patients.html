@@ -14,7 +14,11 @@ content %}
   <tbody>
     {% for paciente in user.pacientes %}
     <tr>
-      <th scope="row">{{paciente.nombre}} {{paciente.apellidos}}</th>
+      <th scope="row">
+        <a href="/doctor-view-patient/{{paciente.nif}}"
+          >{{paciente.nombre}} {{paciente.apellidos}}</a
+        >
+      </th>
       <td>{{paciente.nif}}</td>
       <td>{{ paciente.prescriptions|length }}</td>
       <td>

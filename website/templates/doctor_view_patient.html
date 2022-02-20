@@ -1,0 +1,122 @@
+{% extends "base.html" %} {% block title%} Paciente: {{patient.nombre}}
+{{patient.apellidos}}{% endblock %} {% block content %}
+<div class="card border-primary mb-4">
+  <div class="card-header">Datos personales</div>
+  <div class="card-body">
+    <h5 class="card-title">{{patient.nombre}} {{patient.apellidos}}</h5>
+
+    <ul>
+      <li><b>NIF: </b>{{patient.nif}}</li>
+      <li><b>Fecha de nacimiento: </b>{{patient.fecha_nacimiento}}</li>
+      <li>
+        <b>Email: </b><a href="mailto:{{patient.email}}">{{patient.email}}</a>
+      </li>
+      <li>
+        <b>Telefono: </b
+        ><a href="tel:+34{{patient.telefono}}">{{patient.telefono}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card border-warning mb-4">
+  <div class="card-header">Prescripciones</div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 15%">Fecha inicio</th>
+          <th scope="col" style="width: 15%">Fecha fin</th>
+          <th scope="col" style="width: 15%">Medicamento</th>
+          <th scope="col" style="width: 35%">Principio activo</th>
+          <th scope="col" style="width: 20%">Posología</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for prescription in patient.prescriptions %}
+        <tr>
+          <th>{{prescription.fecha_inicio}}</th>
+          <th>{{prescription.fecha_fin}}</th>
+          <td>{{prescription.medicamento}}</td>
+          <td>{{prescription.principio_activo}}</td>
+          <td>{{prescription.posologia}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="/add-prescription/{{patient.nif}}"
+      ><button class="btn btn-success">Añadir prescripción</button></a
+    >
+  </div>
+</div>
+
+<div class="card border-danger mb-4">
+  <div class="card-header">Lecturas</div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="width: 18%">Fecha y hora</th>
+          <th scope="col">SIS</th>
+          <th scope="col">DIA</th>
+          <th scope="col">PPM</th>
+          <th scope="col" style="width: 10%">Medicinas</th>
+          <th scope="col" style="width: 20%">Notas</th>
+          <th scope="col" style="width: 35%">Notas médico</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for reading in patient.readings %}
+        <tr>
+          <th scope="row">{{reading.fecha_hora}}</th>
+          <td>{{reading.ta_sistolica}}</td>
+          <td>{{reading.ta_diastolica}}</td>
+          <td>{{reading.ppm}}</td>
+          <td>{{"Sí" if reading.medicacion_tomada else "No"}}</td>
+          <td>
+            {% if reading.notas != None %}{{ reading.notas }}{% else
+            %}-{%endif%}
+          </td>
+          <td>
+            <!-- {% if reading.notas_medico != None %}{{ reading.notas_medico }}{%
+            else %}-{%endif%} -->
+
+            <form
+              method="POST"
+              id="add-note"
+              class="form-inline"
+              action="/add-note/{{reading.idLectura}}"
+              target="dummyiframe"
+            >
+              <div class="form-group mx-sm-3 mb-2">
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="notas_medico"
+                  name="notas_medico"
+                >
+{{reading.notas_medico if reading.notas_medico}}</textarea
+                >
+                <button type="submit" class="btn btn-primary ml-2 mb-2">
+                  Añadir
+                </button>
+              </div>
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<iframe
+  width="0"
+  height="0"
+  tabindex="-1"
+  title="empty"
+  class="hidden"
+  id="iframe"
+  name="dummyiframe"
+></iframe>
+
+{% endblock %}
