@@ -118,7 +118,7 @@ def update_reading(idLectura):
         reading.medicacion_tomada = bool(request.form.get("medicacion_tomada"))
         db.session.commit()
         flash("La lectura fue actualizada correctamente", category="success")
-        return redirect(url_for("views.patient_home"))
+        return redirect(url_for("views.patient_readings"))
 
     if reading and current_user.nif == reading.paciente_nif:
         fh = datetime.strftime(reading.fecha_hora, "%Y-%m-%dT%H:%M")
@@ -276,10 +276,7 @@ def doctor_add_note(idLectura):
         lectura.notas_medico = request.form.get("notas_medico")
         db.session.commit()
         flash("La nota fue actualizada satisfactoriamente", category="success")
-        return "OK"
-        # return render_template(
-        #     "doctor_view_patient.html", user=current_user, patient=patient
-        # )
+        return lectura.idLectura
 
 
 @views.route("/doctor/<nif>")
