@@ -1,0 +1,32 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="260" gr:y="350" id="sv1#area3#page3" name="Prescripciones" linkOrder="sv1#area3#page3#ln10">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#area3#page3#pwu4" name="List4" sortable="true" checkable="false" useCountQuery="false" entity="ent4" linkOrder="sv1#area3#page3#pwu4#ln23 sv1#area3#page3#pwu4#ln24 sv1#area3#page3#pwu4#ln25">
+      <Link id="sv1#area3#page3#pwu4#ln23" name="Flow23" to="sv1#area3#mfu4" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#page3#pwu4#ln24" name="Flow24" to="sv1#area3#cru1" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#page3#pwu4#ln25" name="Flow25" to="sv1#area3#dlu2" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page3#pwu4">
+          <layout:Link link="sv1#area3#page3#pwu4#ln23"/>
+          <layout:Link link="sv1#area3#page3#pwu4#ln24"/>
+          <layout:Link link="sv1#area3#page3#pwu4#ln25"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area3#page3#ln10" name="Flow10" to="sv1#area3#lou2" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

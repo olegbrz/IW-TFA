@@ -1,0 +1,5 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="780" gr:y="465" id="sv1#area3" name="Doctor" landmark="true" landmarks="sv1#area3#area4" protected="true" defaultPage="sv1#area3#lou2">
+  <OperationUnits>
+    <LogoutUnit gr:x="5" gr:y="350" id="sv1#area3#lou2" name="Logout2" siteView="sv1"/>
+  </OperationUnits>
+</Area>

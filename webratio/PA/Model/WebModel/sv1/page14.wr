@@ -1,0 +1,27 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="215" gr:y="220" id="sv1#page14" name="Login - Pacientes">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#page14#enu6" name="Login pacientes" linkOrder="sv1#page14#enu6#ln12" entity="ent1">
+      <Link id="sv1#page14#enu6#ln12" name="Flow12" to="sv1#lgu1" automaticCoupling="true" type="normal" validate="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page14#enu6">
+          <layout:Link link="sv1#page14#enu6#ln12"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

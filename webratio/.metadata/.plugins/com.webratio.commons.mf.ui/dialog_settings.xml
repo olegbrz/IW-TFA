@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ModelDocDialog">
+		<section name="ExportImageDialog">
+			<section name="GENERATION_OPTION">
+			</section>
+			<section name="OUTPUT">
+			</section>
+		</section>
+		<section name="COMPANY_DOCUMENTATION">
+		</section>
+	</section>
+	<section name="com.webratio.ide.ui.properties.items.EntityPropertyItem$2.DialogSettings">
+		<item value="true" key="SHOW_AS_LIST_DIALOG_PROPERTY_NAME"/>
+	</section>
+</section>

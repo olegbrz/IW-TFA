@@ -1,0 +1,21 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page1" name="Home" gr:x="495" gr:y="75" linkOrder="sv1#page1#ln1 sv1#page1#ln2">
+  <ContentUnits/>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#page1#ln1" name="Flow1" to="sv1#area2" automaticCoupling="true" type="normal" validate="true"/>
+  <Link id="sv1#page1#ln2" name="Flow2" to="sv1#area3" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

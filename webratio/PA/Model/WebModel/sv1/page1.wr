@@ -1,0 +1,138 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" id="sv1#page1" name="Home" gr:x="285" gr:y="-75">
+  <ContentUnits>
+    <EntryUnit gr:x="245" gr:y="100" id="sv1#page1#enu5" name="Login" linkOrder="sv1#page1#enu5#ln11 sv1#page1#enu5#ln14">
+      <Link id="sv1#page1#enu5#ln11" name="Login - Pacientes" to="sv1#page14" type="normal" automaticCoupling="true" validate="true"/>
+      <Link id="sv1#page1#enu5#ln14" name="Login - M&#233;dicos" to="sv1#page15" type="normal" automaticCoupling="true" validate="true"/>
+    </EntryUnit>
+    <MultiMessageUnit gr:x="230" gr:y="10" id="sv1#page1#mssu2" name="Bienvenidos">
+      <Message xml:space="preserve">Bienvenidos a la p&#225;gina del proyecto de Oleg Y Luc&#237;a para Ingenier&#237;a Web.
+
+Por favor, seleccione la opci&#243;n de login deseada:</Message>
+    </MultiMessageUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#mssu2"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#page1#enu5">
+          <layout:Link link="sv1#page1#enu5#ln11"/>
+          <layout:Link link="sv1#page1#enu5#ln14"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:SubPage pageId="sv1#page1#page4">
+          <layout:Grid containerType="grid">
+            <layout:Row>
+              <layout:Cell colspan="12">
+                <layout:Unit unitId="sv1#page1#page4#enu1">
+                  <layout:Link link="sv1#page1#page4#enu1#ln6"/>
+                </layout:Unit>
+              </layout:Cell>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+            </layout:Row>
+          </layout:Grid>
+        </layout:SubPage>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:SubPage pageId="sv1#page1#page6">
+          <layout:Grid containerType="grid">
+            <layout:Row>
+              <layout:Cell colspan="12">
+                <layout:Unit unitId="sv1#page1#page6#enu2">
+                  <layout:Link link="sv1#page1#page6#enu2#ln7"/>
+                </layout:Unit>
+              </layout:Cell>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+              <layout:Cell/>
+            </layout:Row>
+          </layout:Grid>
+        </layout:SubPage>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Page gr:x="0" gr:y="40" id="sv1#page1#page4" name="Registro - pacientes">
+    <ContentUnits>
+      <EntryUnit gr:x="0" gr:y="0" id="sv1#page1#page4#enu1" name="Formulario registro" linkOrder="sv1#page1#page4#enu1#ln6">
+        <Link id="sv1#page1#page4#enu1#ln6" name="Flow6" to="sv1#cru5" automaticCoupling="true" type="normal" validate="true"/>
+      </EntryUnit>
+    </ContentUnits>
+  </Page>
+  <Page gr:x="365" gr:y="0" id="sv1#page1#page6" name="Registro - m&#233;dicos">
+    <ContentUnits>
+      <EntryUnit gr:x="0" gr:y="0" id="sv1#page1#page6#enu2" name="Formulario registro" linkOrder="sv1#page1#page6#enu2#ln7">
+        <Link id="sv1#page1#page6#enu2#ln7" name="Flow7" to="sv1#cru6" automaticCoupling="true" type="normal" validate="true"/>
+      </EntryUnit>
+    </ContentUnits>
+  </Page>
+</Page>

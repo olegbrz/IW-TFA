@@ -1,0 +1,22 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="180" gr:y="0" id="sv1#area3#page13" name="Home - M&#233;dicos" landmark="true" linkOrder="sv1#area3#page13#ln38 sv1#area3#page13#ln39 sv1#area3#page13#ln40">
+  <ContentUnits/>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area3#page13#ln38" name="Flow38" to="sv1#area3#page8" automaticCoupling="true" type="normal" validate="true"/>
+  <Link id="sv1#area3#page13#ln39" name="Flow39" to="sv1#area3#page3" automaticCoupling="true" type="normal" validate="true"/>
+  <Link id="sv1#area3#page13#ln40" name="Flow40" to="sv1#area3#area4#page5" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

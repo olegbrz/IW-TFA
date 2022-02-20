@@ -1,0 +1,24 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="-170" gr:y="450" id="sv1#area2" name="Pacientes" landmark="true" defaultPage="sv1#area2#page2" landmarks="sv1#area2#page2 sv1#area2#page10" protected="true">
+  <OperationUnits>
+    <CreateUnit gr:x="0" gr:y="305" id="sv1#area2#cru2" name="A&#241;adir lectura" entity="ent2"/>
+    <LogoutUnit gr:x="605" gr:y="0" id="sv1#area2#lou1" name="Logout1" siteView="sv1">
+      <KOLink id="sv1#area2#lou1#kln2" name="KOFlow2" to="sv1#page1#enu5" automaticCoupling="true"/>
+    </LogoutUnit>
+    <DeleteUnit gr:x="150" gr:y="295" id="sv1#area2#dlu1" name="Eliminar lectura" entity="ent2">
+      <Selector id="sv1#area2#dlu1#su4" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#dlu1#su4#kcond4" name="KeyCondition4" predicate="in" implied="false"/>
+      </Selector>
+    </DeleteUnit>
+    <ModifyUnit gr:x="65" gr:y="400" id="sv1#area2#mfu1" name="Actualizar lectura">
+      <Selector id="sv1#area2#mfu1#su5" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu1#su5#kcond5" name="KeyCondition5" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+    <ModifyUnit gr:x="495" gr:y="330" id="sv1#area2#mfu2" name="Actualizar informaci&#243;n personal" entity="ent1">
+      <Selector id="sv1#area2#mfu2#su6" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu2#su6#kcond6" name="KeyCondition6" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#mfu2#oln4" name="OKFlow4" to="sv1#area2#page9" automaticCoupling="true"/>
+    </ModifyUnit>
+  </OperationUnits>
+</Area>

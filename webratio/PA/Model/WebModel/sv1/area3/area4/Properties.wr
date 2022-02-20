@@ -1,0 +1,15 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="475" gr:y="55" id="sv1#area3#area4" name="Pacientes" landmark="true" defaultPage="sv1#area3#area4#page5">
+  <OperationUnits>
+    <CreateUnit gr:x="165" gr:y="265" id="sv1#area3#area4#cru3" name="A&#241;adir paciente" entity="ent1"/>
+    <DeleteUnit gr:x="0" gr:y="255" id="sv1#area3#area4#dlu3" name="Eliminar paciente" entity="ent1">
+      <Selector id="sv1#area3#area4#dlu3#su10" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#area4#dlu3#su10#kcond10" name="KeyCondition10" predicate="in" implied="false"/>
+      </Selector>
+    </DeleteUnit>
+    <ModifyUnit gr:x="540" gr:y="250" id="sv1#area3#area4#mfu5" name="A&#241;adir notas" entity="ent2">
+      <Selector id="sv1#area3#area4#mfu5#su11" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#area4#mfu5#su11#kcond11" name="KeyCondition11" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+  </OperationUnits>
+</Area>

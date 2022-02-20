@@ -1,0 +1,12 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="navegacion" landmarks="sv1#area2 sv1#area3" homePage="sv1#page1">
+  <OperationUnits>
+    <LoginUnit gr:x="60" gr:y="270" id="sv1#lgu1" name="Login Paciente">
+      <OKLink id="sv1#lgu1#oln1" name="OKFlow1" to="sv1#area2" automaticCoupling="true"/>
+      <KOLink id="sv1#lgu1#kln1" name="KOFlow1" to="sv1#page14#enu6" automaticCoupling="true" gr:bendpoints="83,17,-92,12"/>
+    </LoginUnit>
+    <LoginUnit gr:x="1050" gr:y="265" id="sv1#lgu2" name="Login M&#233;dico">
+      <OKLink id="sv1#lgu2#oln2" name="OKFlow2" to="sv1#area3" automaticCoupling="true"/>
+      <KOLink id="sv1#lgu2#kln3" name="KOFlow1" to="sv1#page15#enu7" automaticCoupling="true" gr:bendpoints="83,17,-92,12"/>
+    </LoginUnit>
+  </OperationUnits>
+</SiteView>

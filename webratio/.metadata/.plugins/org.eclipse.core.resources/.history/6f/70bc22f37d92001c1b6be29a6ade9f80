@@ -1,0 +1,36 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="110" gr:y="330" id="sv1#area3#page8" name="Informaci&#243;n personal">
+  <ContentUnits>
+    <DataUnit gr:x="0" gr:y="0" id="sv1#area3#page8#dau2" name="Datos personales" entity="ent3" displayAll="true">
+      <Selector id="sv1#area3#page8#dau2#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#page8#dau2#su2#kcond2" name="KeyCondition2" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page8#dau2">
+          <layout:Attribute attribute="ent3#att10"/>
+          <layout:Attribute attribute="ent3#att11"/>
+          <layout:Attribute attribute="ent3#att12"/>
+          <layout:Attribute attribute="ent3#att32"/>
+          <layout:Attribute attribute="ent3#att33"/>
+          <layout:Attribute attribute="ent3#att34"/>
+          <layout:Attribute attribute="ent3#att35"/>
+          <layout:Attribute attribute="ent3#att36"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

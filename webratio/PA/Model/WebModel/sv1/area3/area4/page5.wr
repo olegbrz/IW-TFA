@@ -1,0 +1,33 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="40" gr:y="35" id="sv1#area3#area4#page5" name="Listar pacientes" linkOrder="sv1#area3#area4#page5#ln8 sv1#area3#area4#page5#ln15">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#area3#area4#page5#pwu3" name="List3" sortable="true" checkable="false" useCountQuery="false" entity="ent1" linkOrder="sv1#area3#area4#page5#pwu3#ln4 sv1#area3#area4#page5#pwu3#ln26 sv1#area3#area4#page5#pwu3#ln27">
+      <Link id="sv1#area3#area4#page5#pwu3#ln4" name="Flow4" to="sv1#area2#page9" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#area4#page5#pwu3#ln26" name="Flow26" to="sv1#area3#area4#dlu3" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#area4#page5#pwu3#ln27" name="Flow27" to="sv1#area3#area4#cru3" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#area4#page5#pwu3">
+          <layout:Link link="sv1#area3#area4#page5#pwu3#ln4"/>
+          <layout:Link link="sv1#area3#area4#page5#pwu3#ln26"/>
+          <layout:Link link="sv1#area3#area4#page5#pwu3#ln27"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area3#area4#page5#ln8" name="Flow8" to="sv1#area3#area4#page7" automaticCoupling="true" type="normal" validate="true"/>
+  <Link id="sv1#area3#area4#page5#ln15" name="Flow15" to="sv1#area3#lou2" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

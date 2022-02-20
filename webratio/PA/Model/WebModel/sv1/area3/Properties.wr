@@ -1,0 +1,24 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="735" gr:y="425" id="sv1#area3" name="Doctor - Home" landmark="true" landmarks="sv1#area3#area4 sv1#area3#page13" protected="true" defaultPage="sv1#area3#lou2">
+  <OperationUnits>
+    <LogoutUnit gr:x="15" gr:y="100" id="sv1#area3#lou2" name="Logout2" siteView="sv1">
+      <KOLink id="sv1#area3#lou2#kln4" name="KOFlow4" to="sv1#page1#enu5" automaticCoupling="true"/>
+    </LogoutUnit>
+    <ModifyUnit gr:x="0" gr:y="525" id="sv1#area3#mfu3" name="Actualizar informaci&#243;n personal" entity="ent3">
+      <Selector id="sv1#area3#mfu3#su7" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#mfu3#su7#kcond7" name="KeyCondition7" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area3#mfu3#oln3" name="OKFlow3" to="sv1#area3#page8" automaticCoupling="true"/>
+    </ModifyUnit>
+    <CreateUnit gr:x="545" gr:y="645" id="sv1#area3#cru1" name="A&#241;adir prescripci&#243;n" entity="ent4"/>
+    <DeleteUnit gr:x="715" gr:y="640" id="sv1#area3#dlu2" name="Eliminar prescripci&#243;n" entity="ent4">
+      <Selector id="sv1#area3#dlu2#su8" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#dlu2#su8#kcond8" name="KeyCondition8" predicate="in" implied="false"/>
+      </Selector>
+    </DeleteUnit>
+    <ModifyUnit gr:x="335" gr:y="645" id="sv1#area3#mfu4" name="Actualizar prescripci&#243;n" entity="ent4">
+      <Selector id="sv1#area3#mfu4#su9" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#mfu4#su9#kcond9" name="KeyCondition9" predicate="in" implied="false"/>
+      </Selector>
+    </ModifyUnit>
+  </OperationUnits>
+</Area>

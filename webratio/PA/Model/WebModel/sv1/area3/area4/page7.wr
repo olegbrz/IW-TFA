@@ -1,0 +1,74 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="315" gr:y="0" id="sv1#area3#area4#page7" name="Ficha de paciente" linkOrder="sv1#area3#area4#page7#ln16">
+  <ContentUnits>
+    <DataUnit gr:x="0" gr:y="0" id="sv1#area3#area4#page7#dau3" name="Informaci&#243;n personal" entity="ent1">
+      <Selector id="sv1#area3#area4#page7#dau3#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#area4#page7#dau3#su3#kcond3" name="KeyCondition3" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+    <PowerIndexUnit gr:x="10" gr:y="100" id="sv1#area3#area4#page7#pwu5" name="Prescripciones" sortable="true" checkable="false" useCountQuery="false" entity="ent4" linkOrder="sv1#area3#area4#page7#pwu5#ln29 sv1#area3#area4#page7#pwu5#ln30 sv1#area3#area4#page7#pwu5#ln31">
+      <Link id="sv1#area3#area4#page7#pwu5#ln29" name="Flow29" to="sv1#area3#dlu2" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#area4#page7#pwu5#ln30" name="Flow30" to="sv1#area3#mfu4" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area3#area4#page7#pwu5#ln31" name="Flow31" to="sv1#area3#cru1" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+    <PowerIndexUnit gr:x="30" gr:y="205" id="sv1#area3#area4#page7#pwu6" name="Lecturas" sortable="true" checkable="false" useCountQuery="false" entity="ent2" linkOrder="sv1#area3#area4#page7#pwu6#ln28">
+      <Link id="sv1#area3#area4#page7#pwu6#ln28" name="Flow28" to="sv1#area3#area4#mfu5" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#area4#page7#dau3"/>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#area4#page7#pwu5">
+          <layout:Link link="sv1#area3#area4#page7#pwu5#ln29"/>
+          <layout:Link link="sv1#area3#area4#page7#pwu5#ln30"/>
+          <layout:Link link="sv1#area3#area4#page7#pwu5#ln31"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#area4#page7#pwu6">
+          <layout:Link link="sv1#area3#area4#page7#pwu6#ln28"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area3#area4#page7#ln16" name="Flow16" to="sv1#area3#lou2" automaticCoupling="true" type="normal" validate="true"/>
+</Page>
