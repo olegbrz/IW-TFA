@@ -26,7 +26,18 @@ def patient_home():
 @views.route("/readings")
 @login_required
 def patient_readings():
-    return render_template("patient_readings.html", user=current_user)
+    last_records = current_user.readings[:10]
+    danger_number = 0
+    for record in last_records:
+        if not (
+            120 <= record.ta_sistolica <= 139
+            and 80 <= record.ta_diastolica <= 89
+            and 50 <= record.ppm <= 100
+        ):
+            danger_number += 1
+    return render_template(
+        "patient_readings.html", user=current_user, danger_number=danger_number
+    )
 
 
 @views.route("/prescriptions")
@@ -78,7 +89,7 @@ def patient_add_reading():
         notas = request.form.get("nota")
         medicacion_tomada = bool(request.form.get("medicacion_tomada"))
 
-        new_reading = Receta(
+        new_reading = Lectura(
             fecha_hora=fecha_hora,
             ta_sistolica=ta_sistolica,
             ta_diastolica=ta_diastolica,
@@ -90,7 +101,7 @@ def patient_add_reading():
         db.session.add(new_reading)
         db.session.commit()
         flash("Lectura registrada correctamente", category="success")
-        return redirect(url_for("views.patient_home"))
+        return redirect(url_for("views.patient_readings"))
     return render_template("patient_add_reading.html", user=current_user)
 
 
@@ -119,7 +130,7 @@ def update_reading(idLectura):
 @views.route("/delete-reading", methods=["POST"])
 def delete_reading():
     idLectura = json.loads(request.data)["idLectura"]
-    lectura = Receta.query.get(idLectura)
+    lectura = Lectura.query.get(idLectura)
     if lectura and lectura.paciente_nif == current_user.nif:
         db.session.delete(lectura)
         db.session.commit()
