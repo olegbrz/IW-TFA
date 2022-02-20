@@ -7,10 +7,12 @@ from sqlalchemy.sql import func
 class Paciente(db.Model, UserMixin):
     __tablename__ = "Paciente"
     nif = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(45))
-    apellidos = db.Column(db.String(45))
-    email = db.Column(db.String(45), unique=True)
+    nombre = db.Column(db.String(500))
+    apellidos = db.Column(db.String(500))
+    email = db.Column(db.String(500), unique=True)
     telefono = db.Column(db.String(45), unique=True)
+    altura = db.Column(db.Integer)
+    peso = db.Column(db.Integer)
     fecha_nacimiento = db.Column(db.Date)
     password = db.Column(db.String(500))
 
@@ -18,17 +20,23 @@ class Paciente(db.Model, UserMixin):
         return self.nif
 
     readings = db.relationship("Lectura", order_by="desc(Lectura.fecha_hora)")
-    prescriptions = db.relationship("Receta", order_by="desc(Receta.fecha_inicio)")
+    prescriptions = db.relationship(
+        "Receta", order_by="desc(Receta.fecha_inicio)", viewonly=True
+    )
     medico_nif = db.Column(db.Integer, db.ForeignKey("Medico.nif"))
 
 
 class Medico(db.Model, UserMixin):
     __tablename__ = "Medico"
     nif = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(45))
-    apellidos = db.Column(db.String(45))
+    nombre = db.Column(db.String(500))
+    apellidos = db.Column(db.String(500))
+    telefono = db.Column(db.String(45))
     email = db.Column(db.String(45), unique=True)
     password = db.Column(db.String(500))
+    hospital = db.Column(db.String(500))
+    consulta = db.Column(db.String(500))
+    horario_atencion = db.Column(db.String(500))
 
     pacientes = db.relationship("Paciente")
     prescriptions = db.relationship("Receta", order_by="desc(Receta.fecha_inicio)")
